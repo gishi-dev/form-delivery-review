@@ -1,0 +1,14 @@
+{
+  "name": "form-delivery-review",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "架空の問い合わせフォームの納品前の確認記録を整理する公開デモ",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node --check server.mjs && node --check app.js"
+  },
+  "dependencies": {}
+}

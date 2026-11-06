@@ -1,0 +1,279 @@
+{
+  "company": "サンプル電機",
+  "vendor": "サンプル制作室",
+  "specification": [
+    "受付画面で問い合わせ内容を受け付け、保存後の管理一覧で文字として表示する。",
+    "通知は固定の窓口と件名を使い、入力内容は本文に配置する。",
+    "未ログイン・一般社員は管理一覧と通知原稿を閲覧できず、問い合わせ担当だけが閲覧できる。"
+  ],
+  "roles": [
+    {
+      "role": "未ログイン",
+      "list": "拒否",
+      "notice": "拒否"
+    },
+    {
+      "role": "一般社員",
+      "list": "拒否",
+      "notice": "拒否"
+    },
+    {
+      "role": "問い合わせ担当",
+      "list": "表示",
+      "notice": "表示"
+    }
+  ],
+  "items": [
+    {
+      "id": "display-reception",
+      "title": "受付画面の文字表示",
+      "target": "受付画面",
+      "requiredMethod": "画面確認",
+      "record": {
+        "target": "受付画面",
+        "method": "画面確認",
+        "procedure": "見出しを変える確認用の入力を表示して、文字として扱われることを確認",
+        "result": "入力は文字として表示され、見出しは変わらなかった",
+        "note": null
+      }
+    },
+    {
+      "id": "display-list",
+      "title": "保存後の管理一覧の文字表示",
+      "target": "保存後の管理一覧",
+      "requiredMethod": "画面確認",
+      "record": {
+        "target": "保存後の管理一覧",
+        "method": "画面確認",
+        "procedure": "受付後に保存された内容を管理一覧で開き、文字表示を確認",
+        "result": "保存後も入力は文字として表示された",
+        "note": null
+      }
+    },
+    {
+      "id": "reception-only",
+      "title": "受付画面だけの別記録：管理一覧",
+      "target": "別記録の保存後の管理一覧",
+      "requiredMethod": "画面確認",
+      "record": {
+        "target": "受付画面",
+        "method": "画面確認",
+        "procedure": "受付画面で文字表示を確認",
+        "result": "受付画面では文字として表示された",
+        "note": null
+      }
+    },
+    {
+      "id": "list-access",
+      "title": "管理一覧の閲覧権限",
+      "target": "管理一覧の役割別閲覧",
+      "requiredMethod": "模擬役割確認",
+      "record": {
+        "target": "管理一覧の役割別閲覧",
+        "method": "模擬役割確認",
+        "procedure": "未ログイン・一般社員・問い合わせ担当の模擬の役割で管理一覧を確認",
+        "result": "未ログインは拒否、一般社員は拒否、問い合わせ担当は表示",
+        "note": null
+      }
+    },
+    {
+      "id": "notice-access",
+      "title": "通知原稿の閲覧権限",
+      "target": "通知原稿の役割別閲覧",
+      "requiredMethod": "模擬役割確認",
+      "record": {
+        "target": "通知原稿の役割別閲覧",
+        "method": "模擬役割確認",
+        "procedure": "未ログイン・一般社員・問い合わせ担当の模擬の役割で通知原稿を確認",
+        "result": "未ログインは拒否、一般社員は拒否、問い合わせ担当は表示",
+        "note": null
+      }
+    },
+    {
+      "id": "mail-draft",
+      "title": "通知メールの原稿",
+      "target": "通知メールの原稿",
+      "requiredMethod": "原稿確認",
+      "record": {
+        "target": "通知メールの原稿",
+        "method": "原稿確認",
+        "procedure": "通知原稿の宛先・件名・本文を確認",
+        "result": "宛先は受付用窓口@example.invalid、件名は「お問い合わせ受付」で固定。入力内容は本文に配置",
+        "note": null
+      }
+    },
+    {
+      "id": "authentication",
+      "title": "本物の認証・セッション",
+      "target": "本物の認証・セッション",
+      "requiredMethod": "実認証確認",
+      "record": {
+        "target": null,
+        "method": null,
+        "procedure": null,
+        "result": null,
+        "note": null
+      }
+    },
+    {
+      "id": "delivery",
+      "title": "メールの実配送",
+      "target": "メールの実配送",
+      "requiredMethod": "配送確認",
+      "record": {
+        "target": null,
+        "method": null,
+        "procedure": null,
+        "result": null,
+        "note": null
+      }
+    },
+    {
+      "id": "detail-access",
+      "title": "詳細表示の経路",
+      "target": "詳細表示の役割別閲覧",
+      "requiredMethod": "模擬役割確認",
+      "record": {
+        "target": null,
+        "method": null,
+        "procedure": null,
+        "result": null,
+        "note": null
+      }
+    },
+    {
+      "id": "search-access",
+      "title": "検索の経路",
+      "target": "検索の役割別閲覧",
+      "requiredMethod": "模擬役割確認",
+      "record": {
+        "target": null,
+        "method": null,
+        "procedure": null,
+        "result": null,
+        "note": null
+      }
+    },
+    {
+      "id": "csv-access",
+      "title": "CSV出力の経路",
+      "target": "CSV出力の役割別利用",
+      "requiredMethod": "模擬役割確認",
+      "record": {
+        "target": null,
+        "method": null,
+        "procedure": null,
+        "result": null,
+        "note": null
+      }
+    },
+    {
+      "id": "attachment",
+      "title": "添付ファイルの経路",
+      "target": "添付ファイルの役割別利用",
+      "requiredMethod": "模擬役割確認",
+      "record": {
+        "target": null,
+        "method": null,
+        "procedure": null,
+        "result": null,
+        "note": null
+      }
+    },
+    {
+      "id": "csrf",
+      "title": "CSRFへの対応",
+      "target": "CSRFへの対応",
+      "requiredMethod": "専門確認",
+      "record": {
+        "target": null,
+        "method": null,
+        "procedure": null,
+        "result": null,
+        "note": null
+      }
+    },
+    {
+      "id": "sql",
+      "title": "SQLの扱い",
+      "target": "SQLの扱い",
+      "requiredMethod": "専門確認",
+      "record": {
+        "target": null,
+        "method": null,
+        "procedure": null,
+        "result": null,
+        "note": null
+      }
+    },
+    {
+      "id": "load",
+      "title": "負荷への耐性",
+      "target": "負荷への耐性",
+      "requiredMethod": "専門確認",
+      "record": {
+        "target": null,
+        "method": null,
+        "procedure": null,
+        "result": null,
+        "note": null
+      }
+    },
+    {
+      "id": "handover",
+      "title": "公開ファイル・更新・ログの引き継ぎ",
+      "target": "公開ファイル・ソフトウェア更新・ログの管理",
+      "requiredMethod": "引継確認",
+      "record": {
+        "target": null,
+        "method": null,
+        "procedure": null,
+        "result": null,
+        "note": null
+      }
+    },
+    {
+      "id": "statement",
+      "title": "制作会社の一文だけの記録",
+      "target": "納品物全体",
+      "requiredMethod": "引継確認",
+      "record": {
+        "target": null,
+        "method": null,
+        "procedure": null,
+        "result": null,
+        "note": "確認しました"
+      }
+    }
+  ],
+  "teachingRecords": {
+    "notice-access": {
+      "target": "管理一覧の役割別閲覧",
+      "method": "模擬役割確認",
+      "procedure": "未ログイン・一般社員・問い合わせ担当の模擬の役割で管理一覧を確認",
+      "result": "未ログインは拒否、一般社員は拒否、問い合わせ担当は表示",
+      "note": null
+    },
+    "authentication": {
+      "target": "管理一覧の役割別閲覧",
+      "method": "模擬役割確認",
+      "procedure": "模擬の役割を切り替えて管理一覧を確認",
+      "result": "役割ごとに拒否と表示を確認",
+      "note": null
+    },
+    "csv-access": {
+      "target": "管理一覧の役割別閲覧",
+      "method": "模擬役割確認",
+      "procedure": "未ログイン・一般社員・問い合わせ担当の模擬の役割で管理一覧を確認",
+      "result": "未ログインは拒否、一般社員は拒否、問い合わせ担当は表示",
+      "note": null
+    },
+    "delivery": {
+      "target": "通知メールの原稿",
+      "method": "原稿確認",
+      "procedure": "通知原稿の宛先・件名・本文を確認",
+      "result": "宛先は受付用窓口@example.invalid、件名は「お問い合わせ受付」で固定。入力内容は本文に配置",
+      "note": null
+    }
+  }
+}
